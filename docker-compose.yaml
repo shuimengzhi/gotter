@@ -6,7 +6,7 @@ services:
     container_name: go_client
     restart: always
     expose:
-      - "3000"
+      - "4000"
     volumes:
       - ./bin:/app
     command: "/app/app_linux"
@@ -16,7 +16,7 @@ services:
     container_name: go_server
     restart: always
     expose:
-      - "3000"
+      - "4000"
     volumes:
       - ./bin:/app
     command: "/app/app_linux"

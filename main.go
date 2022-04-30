@@ -1,13 +1,12 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"gotter/logo"
+	"gotter/router"
+)
 
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	r.Run()
+	r := router.NewRouter()
+	logo.Print()
+	r.Run(":4000")
 }
