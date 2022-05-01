@@ -25,7 +25,19 @@ clean:
 	rm -f ${OUT_FILE_PATH}_linux
 	rm -f ${OUT_FILE_PATH}_win
 	rm -f ${OUT_FILE_PATH}_mac
+docker:build
+	docker-compose down
+	docker-compose up -d
+clean_docker:
+	docker-compose down
 logo:
 	@echo  $(gotter)
+help:
+	@echo "run 编译并运行"
+	@echo "build 编译"
+	@echo "clean 删除编译的程序"
+	@echo "docker 编译之后删除容器再创建docker容器"
+	@echo "clean_docker 删除容器"
+	@echo "logo 显示logo"
 
 
