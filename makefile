@@ -11,7 +11,8 @@ gotter +="  \_____|  \____/     |_|       |_|    |______| |_|  \_\\n"
 time = $(shell date "+%Y-%m-%d %H:%M:%S")
 # 应用生成的位置
 OUT_FILE_PATH=./bin/app
-
+# docker网络名称
+NETWORK_NAME="docker_network"
 run:build logo
 	${OUT_FILE_PATH}_mac
 build:
@@ -25,7 +26,12 @@ clean:
 	rm -f ${OUT_FILE_PATH}_linux
 	rm -f ${OUT_FILE_PATH}_win
 	rm -f ${OUT_FILE_PATH}_mac
+
 docker:build
+#如果网络不存在则创建
+ifeq ("$(shell docker network ls | grep "${NETWORK_NAME}")","")
+	docker network create ${NETWORK_NAME}
+endif
 	docker-compose down
 	docker-compose up -d
 clean_docker:
