@@ -1,16 +1,6 @@
 version: "3.7"
 
 services:
-  go_client:
-    image: ubuntu:22.04
-    container_name: go_client
-    restart: always
-    expose:
-      - "4000"
-    volumes:
-      - ./bin:/app
-    command: "/app/app_linux"
-    network_mode: docker_network
   go_server:
     image: ubuntu:22.04
     container_name: go_server
