@@ -6,12 +6,12 @@ func NewRouter() *gin.Engine {
 	r := gin.Default()
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "pong",
+			"message": "get pong",
 		})
 	})
 	r.POST("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "pong",
+			"message": "post pong",
 		})
 	})
 	return r
