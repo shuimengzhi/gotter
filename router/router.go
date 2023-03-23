@@ -1,6 +1,9 @@
 package router
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"gotter/controller"
+)
 
 func NewRouter() *gin.Engine {
 	r := gin.Default()
@@ -14,5 +17,6 @@ func NewRouter() *gin.Engine {
 			"message": "post pong",
 		})
 	})
+	r.POST("/demo", controller.DemoController)
 	return r
 }
